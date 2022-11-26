@@ -13,6 +13,7 @@ public class StudentManagement {
       System.out.println("Press 2 to add a student: ");
       System.out.println("press 3 to update student details: ");
       System.out.println("press 4 to delete student: ");
+      System.out.println("press 5 to get a PDF");
       System.out.println("press any other key to exit from system.");
 
       int choice = 1;
@@ -31,6 +32,12 @@ public class StudentManagement {
         case 4:
           StuDB.deleteStudent();
           break;
+
+        case 5:
+        StuDB.createPDF();
+
+        break;
+
         default:
           a = false;
           break;
