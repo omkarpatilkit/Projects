@@ -8,8 +8,6 @@ public class Email {
 	private String lastName;
 	private String department;
 	private String password;
-	private int mailboxCapacity;
-	private String alternateEmail;
 	private String email;
 	
 	
@@ -71,9 +69,6 @@ public class Email {
 		return emailGen;
 			}
 	
-	//set mailbox capacity
-	
-	//set alternate mail
 	
 	//change password
 	
