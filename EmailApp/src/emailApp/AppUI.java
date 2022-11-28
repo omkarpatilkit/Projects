@@ -12,6 +12,7 @@ import javax.swing.JPanel;
 import javax.swing.JTextField;
 
 public class AppUI {
+	final JComboBox<String> cb;
 	
 	public AppUI() {
 		JFrame jf = new JFrame("Email generator");
@@ -61,7 +62,7 @@ public class AppUI {
 		jp1.add(labelDept);
 		
 		String[] deptChoice = {"Sales", "Accounting", "Developement", "None"};
-		final JComboBox<String> cb = new JComboBox<>(deptChoice);
+		cb = new JComboBox<>(deptChoice);
 		cb.setBounds(200, 250, 100, 50);
 		cb.setVisible(true);
 		cb.setBackground(Color.cyan);
@@ -75,7 +76,9 @@ public class AppUI {
 			
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				Email em = new Email(textFieldName.getText(),textFieldLastName.getText() );
+				
+				Email em = new Email(textFieldName.getText(),textFieldLastName.getText() ,cb.getSelectedItem().toString());
+				
 				
 			}
 		});
@@ -90,13 +93,6 @@ public class AppUI {
 		}
 		
 		
-		
-		
-		
-		
-		
-		
-		
 	}
-
+	
 }

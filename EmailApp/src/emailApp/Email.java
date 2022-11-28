@@ -10,48 +10,20 @@ public class Email {
 	private String department;
 	private String password;
 	private String email;
-	
+	DbOperations db = new DbOperations();
 	
 	//constructor name and Last name
-	public Email(String name , String lastName) {
+	public Email(String name , String lastName, String dept) {
 		this.name = name;
 		this.lastName = lastName;
-//		this.department = getDepartment();
+		this.department = dept;
 		this.password = passwordGen(8);
 		this.email = emailGen();
-		System.out.println("Your email is: " + email);
-		System.out.println("Your password is: " + password);
+		db.insertIntoDB(this.name , this.lastName , this.email ,this.password  , this.department);
+		
 	}
 	
-	// ask for department
-	private String getDepartment () {
-		System.out.println("Please enter department");
-		System.out.println("1.Accounting\n2.Sales\n3.Development\nany other value for none");
-		
-		Scanner sc = new Scanner(System.in);
-		int choice  = sc.nextInt();
-		String dept;
-		
-		switch (choice) {
-		case 1: 
-			dept = "Accounting";
-			break;
-		
-		case 2: 
-			dept = "Sales";
-			break;
-			
-		case 3:
-			dept = "Department";
-			break;
-			
-		default:
-			dept = "None";
-			break;			
-		}
-		sc.close();
-		return dept;
-	}
+	
 	
 	//generate random password
 	private String passwordGen(int Len) {
