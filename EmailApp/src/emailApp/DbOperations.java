@@ -5,6 +5,8 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
+import javax.swing.JOptionPane;
+
 public class DbOperations {
 	
 	private Connection cn = ConnectToDB.connectToDB();
@@ -21,8 +23,9 @@ public class DbOperations {
 				pst.setString(4, email);
 				pst.setString(5, password);
 				
-				
 				pst.executeUpdate();
+				AppUI.showInformation("Email created sucessfully");
+				AppUI.clearData();
 			} catch (SQLException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
@@ -40,9 +43,12 @@ public class DbOperations {
 			
 			ResultSet res = pst.executeQuery();
 			if (res.next() == false) {
+				
 				return false;
 			}
 			else {
+				AppUI.showWarning("Email already taken, please try different combination.");
+				AppUI.clearData();
 				return true;
 			}
 		} catch (SQLException e) {

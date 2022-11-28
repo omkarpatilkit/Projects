@@ -8,11 +8,15 @@ import javax.swing.JButton;
 import javax.swing.JComboBox;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 
 public class AppUI {
 	final JComboBox<String> cb;
+	static JPanel jp1;
+	static JTextField textFieldLastName;
+	static JTextField textFieldName ;
 	
 	public AppUI() {
 		JFrame jf = new JFrame("Email generator");
@@ -21,20 +25,20 @@ public class AppUI {
 		jf.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		jf.setVisible(true);
 		
-		JPanel jp1 = new JPanel();
+		jp1 = new JPanel();
 		jp1.setVisible(true);
-		jp1.setBackground(Color.blue);
+		jp1.setBackground(Color.gray);
 		jp1.setLayout(null);
 		jp1.setBounds(100,0, 500,600);
 		jf.add(jp1);
 		
-		JTextField textFieldName = new JTextField("");
+		textFieldName = new JTextField("");
 		textFieldName.setBounds(200, 50, 100, 40);
 		textFieldName.setVisible(true);
 		textFieldName.setBackground(Color.white);
 		jp1.add(textFieldName);
 		
-		JTextField textFieldLastName = new JTextField("");
+		textFieldLastName = new JTextField("");
 		textFieldLastName.setBounds(200, 150, 100, 40);
 		textFieldLastName.setVisible(true);
 		textFieldLastName.setBackground(Color.white);
@@ -93,6 +97,21 @@ public class AppUI {
 		}
 		
 		
+	}
+	
+	public static void showWarning (String str) {
+		JOptionPane.showMessageDialog(jp1, str,"WARNING",JOptionPane.WARNING_MESSAGE);
+
+	}
+	
+	public static void showInformation (String str) {
+		JOptionPane.showMessageDialog(jp1, str,"INFORMATION",JOptionPane.INFORMATION_MESSAGE);
+
+	}
+	
+	public static void clearData() {
+		textFieldLastName.setText("");
+		textFieldName.setText("");
 	}
 	
 }

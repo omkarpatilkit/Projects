@@ -39,7 +39,7 @@ public class Email {
 	}
 	
 	private String emailGen() {
-		String emailGen = this.name.toLowerCase()+this.lastName.toLowerCase()+"@"+"comp.com" ;
+		String emailGen = this.name.toLowerCase()+this.lastName.toLowerCase()+this.department.toLowerCase()+"@"+"comp.com" ;
 		return emailGen;
 			}
 	
