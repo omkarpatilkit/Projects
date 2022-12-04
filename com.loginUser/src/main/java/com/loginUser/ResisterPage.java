@@ -18,7 +18,7 @@ public class ResisterPage extends HttpServlet {
 		String uPwd = req.getParameter("uPwd");
 		String uPhone = req.getParameter("uPhone");
 		
-		if(DbOperations.searchUser(uEmail, uPwd)) {
+		if(DbOperations.searchUser(uEmail)) {
 			String str = "User already exists/nPlease try to login";
 			req.setAttribute("userInfo", str);
 			RequestDispatcher rd = req.getRequestDispatcher("userExists.jsp");

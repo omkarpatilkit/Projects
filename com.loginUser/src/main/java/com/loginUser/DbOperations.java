@@ -16,7 +16,7 @@ public class DbOperations {
 		session.close();
 	}
 
-	public static boolean searchUser(String uEmail, String uPwd) {
+	public static boolean searchUser(String uEmail) {
 		session = sf.openSession();
 		session.beginTransaction();
 		User u = (User) session.get(User.class, uEmail);
@@ -26,6 +26,16 @@ public class DbOperations {
 			return false;
 		}
 		return true;
+	}
+	
+	public static User getUser(String uEmail) {
+		User u ;
+		session = sf.openSession();
+		session.beginTransaction();
+		u = (User) session.get(User.class, uEmail);
+		session.getTransaction().commit();
+		session.close();
+		return u;
 	}
 
 }

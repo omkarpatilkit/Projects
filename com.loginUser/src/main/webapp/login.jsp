@@ -14,12 +14,15 @@
 	<div align="center" style="width: 1004px;" title="Login page">
 		Hello welcome to login page.<br> <br>
 		<form method=post action="loginPage" autocapitalize="sentences">
-			Email id : <input name="uEmail" style="text-transform: lowercase"><br>
-			<br>Password: <input type="password" name="uPwd"
-				formmethod="post"><br> <br> <input type="submit"
-				value="Submit"><br>
+			Email id : <input name="uEmail" style="text-transform: lowercase"
+				type="email"><br> <br>Password: <input
+				type="password" name="uPwd" formmethod="post"><br> <br>
+			<input type="submit" value="Submit" onclick="fn"><br>
 		</form>
 
+		<script type="text/javascript">
+		function fn{alert(request.getAttribute("alert1"));}
+		</script>
 		<a href="resister.jsp"><br>Please resister for new user</a>
 	</div>
 	<br>
